@@ -2,7 +2,7 @@
 
 Landing page que consome a [HP-API](https://hp-api.onrender.com/) e exibe personagens da saga Harry Potter com imagem, nome, data de nascimento, casa, patrono, ator e status (vivo/falecido).
 
-> **Deploy:** _(adicionar link da Vercel após o deploy)_
+> **Deploy:** [lp-harry-potter-project.vercel.app](https://lp-harry-potter-project.vercel.app)
 
 ## Tecnologias
 
@@ -43,7 +43,7 @@ Acesse `http://localhost:5173` no navegador.
 
 ## Estrutura do projeto
 
-```
+```text
 src/
 ├── components/        # Componentes de UI (Header, CharacterCard, etc.)
 ├── hooks/             # Hooks customizados (useCharacters)
