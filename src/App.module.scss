@@ -1,0 +1,19 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  @include container;
+  flex: 1;
+  padding-top: $space-6;
+  padding-bottom: $space-7;
+
+  @include breakpoint-up($bp-md) {
+    padding-top: $space-7;
+  }
+}
