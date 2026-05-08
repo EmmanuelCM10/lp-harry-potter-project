@@ -1,0 +1,65 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.filter {
+  margin-block: $space-6 $space-5;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  justify-content: center;
+}
+
+.button {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  color: $color-text-secondary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color $transition-base, color $transition-base,
+    border-color $transition-base;
+
+  &:hover {
+    background-color: $color-surface-hover;
+    color: $color-text-primary;
+    border-color: $color-border-strong;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.buttonActive {
+  background-color: $color-accent-soft;
+  border-color: $color-accent;
+  color: $color-accent;
+
+  .count {
+    background-color: $color-accent;
+    color: $color-bg;
+  }
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.25rem;
+  padding-inline: $space-2;
+  border-radius: 999px;
+  background-color: $color-bg-elevated;
+  color: $color-text-muted;
+  font-size: 0.7rem;
+  font-weight: 600;
+  transition: background-color $transition-base, color $transition-base;
+}
