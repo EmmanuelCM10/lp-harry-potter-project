@@ -1,0 +1,174 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.card {
+  @include card-surface;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform $transition-base, box-shadow $transition-base,
+    border-color $transition-base;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transition: border-color $transition-base;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-card-hover;
+    border-color: $color-border-strong;
+
+    .image {
+      transform: scale(1.04);
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: $color-bg-elevated;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform $transition-slow;
+}
+
+.status {
+  position: absolute;
+  top: $space-3;
+  right: $space-3;
+  padding: $space-1 $space-3;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.55);
+  border: 1px solid currentColor;
+}
+
+.statusAlive {
+  color: $color-alive;
+}
+
+.statusDeceased {
+  color: $color-deceased;
+}
+
+.body {
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  flex: 1;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  padding-bottom: $space-4;
+  border-bottom: 1px solid $color-border;
+}
+
+.name {
+  font-family: $font-display;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: $color-text-primary;
+}
+
+.house {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+  font-size: 0.875rem;
+
+  @include breakpoint-up($bp-lg) {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    align-items: baseline;
+    gap: $space-3;
+  }
+
+  dt {
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.7rem;
+  }
+
+  dd {
+    margin: 0;
+    color: $color-text-primary;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// House accent colors on top border
+.houseGryffindor {
+  border-top: 3px solid $house-gryffindor;
+  .house {
+    color: #f47272;
+  }
+}
+
+.houseSlytherin {
+  border-top: 3px solid $house-slytherin;
+  .house {
+    color: #6fbf83;
+  }
+}
+
+.houseRavenclaw {
+  border-top: 3px solid $house-ravenclaw;
+  .house {
+    color: #94a8d8;
+  }
+}
+
+.houseHufflepuff {
+  border-top: 3px solid $house-hufflepuff;
+  .house {
+    color: $house-hufflepuff;
+  }
+}
+
+.houseUnknown {
+  border-top: 3px solid $house-unknown;
+}
