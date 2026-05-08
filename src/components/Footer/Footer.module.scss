@@ -1,0 +1,23 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  margin-top: $space-9;
+  padding-block: $space-6;
+  border-top: 1px solid $color-border;
+  text-align: center;
+  color: $color-text-muted;
+  font-size: 0.8125rem;
+
+  @include container;
+}
+
+.link {
+  color: $color-accent;
+  border-bottom: 1px solid transparent;
+  transition: border-color $transition-base;
+
+  &:hover {
+    border-bottom-color: $color-accent;
+  }
+}
