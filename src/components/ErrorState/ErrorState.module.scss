@@ -1,0 +1,45 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.wrapper {
+  @include card-surface;
+  padding: $space-7 $space-5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: center;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  color: $color-text-primary;
+}
+
+.message {
+  color: $color-text-secondary;
+  font-size: 0.9375rem;
+}
+
+.button {
+  @include reset-button;
+  margin-top: $space-3;
+  padding: $space-3 $space-5;
+  border-radius: 999px;
+  background-color: $color-accent;
+  color: $color-bg;
+  font-weight: 600;
+  transition: opacity $transition-base, transform $transition-base;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
